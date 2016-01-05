@@ -2,6 +2,7 @@ Package.describe({
   name: 'quadric:backdoor-raw',
   summary: 'Runs arbitrary code on server returning raw data',
   version: '0.1.0',
+  git: 'https://github.com/quadric/meteor-backdoor-raw.git',
   debugOnly: true
 });
 

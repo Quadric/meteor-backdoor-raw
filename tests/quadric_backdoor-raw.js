@@ -1,4 +1,4 @@
-describe('xolvio/backdoor', function () {
+describe('quadric/backdoor-raw', function () {
   it('executes the passed code on the server', function (done) {
     const myFunction = function (globalToCheck) {
       return !!global[globalToCheck];
@@ -27,5 +27,19 @@ describe('xolvio/backdoor', function () {
       });
       done();
     });
+  });
+});
+
+it('returns a cursor with raw objects', function (done) {
+  const myFunction = function () {
+    return Package['quadric:backdoor-raw'].models.Post.find();
+  };
+
+  Meteor.call('xolvio/backdoor', myFunction.toString(), [], function (error, result) {
+    expect(error).toBeUndefined();
+    expect(result).toEqual({
+      value: true
+    });
+    done();
   });
 });

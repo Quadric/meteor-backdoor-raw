@@ -1,18 +1,25 @@
+var _ = Npm.require('lodash');
 var vm = Npm.require('vm');
+var backdoor = Meteor.server.method_handlers['xolvio/backdoor'];
 
-Meteor.methods({
-  'xolvio/backdoor': function (func, args) {
-    check(func, String);
-    check(args, Match.Optional(Array));
-
-    try {
-      return {
-        value: vm.runInThisContext('(' + func + ')').apply(global, args)
-      };
-    } catch (error) {
-      return {
-        error: {message: error.toString(), stack: error.stack.toString()}
-      };
-    }
+function transfer(items) {
+  if(items && _.isFunction(items.raw)) {
+    return items.raw();
   }
-});
+
+  if(_.isArray(items)) {
+    return _.map(items, transfer);
+  }
+
+  if(_.isObject(items)) {
+    return _.mapObject(items, transfer);
+  }
+
+  return items;
+}
+
+Meteor.server.method_handlers['xolvio/backdoor'] = _.compose((response) => {
+  response.value = transfer(response.value);
+
+  return response;
+}, backdoor);

@@ -12,7 +12,7 @@ function transfer(items) {
   }
 
   if(_.isObject(items)) {
-    return _.mapObject(items, transfer);
+    return _.mapValues(items, transfer);
   }
 
   return items;

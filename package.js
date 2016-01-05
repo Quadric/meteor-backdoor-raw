@@ -19,7 +19,7 @@ Package.onUse(function (api) {
   // For testing purposes
   // @todo: all the following lines should be moved to `onTest`
   // @see https://github.com/quadric/meteor-backdoor-raw/issues/1
-  api.use('underscore');
+  api.use('erasaur:meteor-lodash');
   api.use('mongo', ['server']);
   api.use('jagi:astronomy', ['server']);
   api.addFiles('tests/models.js', 'server');

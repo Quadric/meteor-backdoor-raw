@@ -13,15 +13,15 @@ Npm.depends({
 Package.onUse(function (api) {
   api.versionsFrom('METEOR@1.2.1');
   api.use('ecmascript');
-  api.use('xolvio:backdoor');
+  api.use('xolvio:backdoor@0.1.2');
   api.addFiles('server.js', 'server');
 
   // For testing purposes
   // @todo: all the following lines should be moved to `onTest`
   // @see https://github.com/quadric/meteor-backdoor-raw/issues/1
-  api.use('erasaur:meteor-lodash');
+  api.use('erasaur:meteor-lodash@3.10.1_1');
   api.use('mongo', ['server']);
-  api.use('jagi:astronomy', ['server']);
+  api.use('jagi:astronomy@1.2.10', ['server']);
   api.addFiles('tests/models.js', 'server');
   api.export('models');
 });

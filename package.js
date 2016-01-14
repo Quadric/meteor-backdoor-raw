@@ -1,20 +1,16 @@
 Package.describe({
   name: 'quadric:backdoor-raw',
   summary: 'Runs arbitrary code on server returning raw data',
-  version: '0.1.1',
+  version: '0.1.2',
   git: 'https://github.com/quadric/meteor-backdoor-raw.git',
   debugOnly: true
-});
-
-Npm.depends({
-  lodash: '3.10.1',
 });
 
 Package.onUse(function (api) {
   api.versionsFrom('METEOR@1.2.1');
   api.use('ecmascript');
   api.use('xolvio:backdoor@0.1.2');
-  api.use('erasaur:meteor-lodash@3.10.1_1');
+  api.use('erasaur:meteor-lodash@4.0.0');
   api.addFiles('server.js', 'server');
 
   // For testing purposes,

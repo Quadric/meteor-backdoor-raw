@@ -8,9 +8,9 @@ Package.describe({
 
 Package.onUse(function (api) {
   api.versionsFrom('METEOR@1.3-beta.11');
-  api.use('ecmascript');
-  api.use('xolvio:backdoor@0.2.0-rc.0');
-  api.mainModule('server.js', 'server');
+  api.use('ecmascript@0.1.6');
+  api.use('xolvio:backdoor@0.1.2');
+  api.addFiles('server.js', 'server');
 
   // For testing purposes,
   // uncomment the lines below
@@ -26,8 +26,8 @@ Package.onUse(function (api) {
 Package.onTest(function(api) {
   api.versionsFrom('METEOR@1.3-beta.11');
   api.use('quadric:backdoor-raw');
-  api.use('ecmascript');
+  api.use('ecmascript@0.1.6');
   api.use('sanjo:jasmine@0.20.3');
 
-  api.mainModule('tests/quadric_backdoor-raw.js', 'client');
+  api.addFiles('tests/quadric_backdoor-raw.js', 'client');
 });

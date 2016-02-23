@@ -1,6 +1,6 @@
-var _ = Npm.require('lodash');
-var vm = Npm.require('vm');
-var backdoor = Meteor.server.method_handlers['xolvio/backdoor'];
+import {_} from "lodash";
+
+const backdoor = Meteor.server.method_handlers['xolvio/backdoor'];
 
 function transfer(items) {
   if(items && _.isFunction(items.raw)) {

@@ -1,4 +1,4 @@
-import {_} from "lodash";
+import _ from "lodash";
 
 const backdoor = Meteor.server.method_handlers['xolvio/backdoor'];
 
@@ -18,7 +18,7 @@ function transfer(items) {
   return items;
 }
 
-Meteor.server.method_handlers['xolvio/backdoor'] = _.compose((response) => {
+Meteor.server.method_handlers['xolvio/backdoor'] = _.flowRight((response) => {
   response.value = transfer(response.value);
 
   return response;

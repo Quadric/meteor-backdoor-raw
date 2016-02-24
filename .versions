@@ -23,7 +23,7 @@ html-tools@1.0.5
 htmljs@1.0.5
 id-map@1.0.4
 jquery@1.11.4
-local-test:quadric:backdoor-raw@0.2.0-rc.0
+local-test:quadric:backdoor-raw@0.2.0-rc.1
 logging@1.0.8
 meteor@1.1.10
 minimongo@1.0.10
@@ -36,7 +36,7 @@ package-version-parser@3.0.4
 practicalmeteor:chai@2.1.0_1
 practicalmeteor:loglevel@1.2.0_2
 promise@0.5.1
-quadric:backdoor-raw@0.2.0-rc.0
+quadric:backdoor-raw@0.2.0-rc.1
 random@1.0.5
 reactive-var@1.0.6
 reload@1.1.4
